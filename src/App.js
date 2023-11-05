@@ -10,6 +10,14 @@ const App = () => {
         setData(res.hits);
       });
   }, []);
+  
+  useEffect(() => {
+    fetch("https://hn.algolia.com/api/v1/search_by_date?tags=story&page=0")
+      .then((res) => res.json())
+      .then((res) => {
+        setData(res.hits);
+      });
+  }, []);
 
   return<div className="card-group">
     {data.map((res) => (
